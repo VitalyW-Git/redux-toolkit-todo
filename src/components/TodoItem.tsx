@@ -1,5 +1,5 @@
 import { useAppDispatch } from '../hook';
-import { toggleStatus, deleteTodo } from '../store/todoSlice';
+import { toggleComplete, removeTodo } from '../store/todoSlice';
 
 interface TodoItemProps {
     id: string,
@@ -15,10 +15,10 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, title, completed }) => {
             <input
                 type='checkbox'
                 checked={completed}
-                onChange={() => dispatch(toggleStatus(id))}
+                onChange={() => dispatch(toggleComplete(id))}
             />
             <span>{title}</span>
-            <span onClick={() => dispatch(deleteTodo(id))}>&times;</span>
+            <span onClick={() => dispatch(removeTodo(id))}>&times;</span>
         </li>
     );
 };
